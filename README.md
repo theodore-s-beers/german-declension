@@ -1,1 +1,1 @@
-# german-declension
+# German declension practice

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+
+    <style>
+      .container {
+        max-width: 860px;
+        margin-top: 0.6rem;
+      }
+      #checkbox-wrapper {
+        margin-top: 2.5rem;
+      }
+    </style>
+
+    <title>German declension practice</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>German declension practice</h1>
+
+      <p>
+        Click the "New" button to generate a problem. You're given a noun and an
+        attributive adjective to go with it, plus an indication of the desired
+        case and article. Fill in the blanks as appropriate and click "Submit."
+        The type of the noun – masculine, feminine, neuter, or plural – can be
+        hidden to make the exercise a bit more difficult.
+      </p>
+
+      <hr />
+
+      <form>
+        <div class="form-row">
+          <div class="form-group col-md-3">
+            <label for="desired-case">Case</label
+            ><input
+              id="desired-case"
+              type="text"
+              class="form-control"
+              readonly
+            />
+          </div>
+
+          <div class="form-group col-md-3">
+            <label for="noun-type">Noun type</label>
+            <input id="noun-type" readonly class="form-control" type="text" />
+          </div>
+
+          <div class="form-group col-md-3">
+            <div class="form-check" id="checkbox-wrapper">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                id="noun-type-check"
+                checked
+              />
+              <label class="form-check-label" for="noun-type-check">
+                Show noun type
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-row" id="answer-row">
+          <div class="form-group col-md-2">
+            <label for="desired-article">Article</label>
+            <input id="desired-article" type="text" class="form-control" />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="chosen-adj">Adjective</label>
+            <input id="chosen-adj" type="text" class="form-control" readonly />
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="adj-suffix">Suff.</label>
+            <input id="adj-suffix" type="text" class="form-control" />
+          </div>
+
+          <div class="form-group col-md-4">
+            <label for="chosen-noun">Noun</label>
+            <input id="chosen-noun" type="text" class="form-control" readonly />
+          </div>
+
+          <div class="form-group col-md-1">
+            <label for="noun-suffix">Suff.</label>
+            <input id="noun-suffix" type="text" class="form-control" />
+          </div>
+        </div>
+
+        <button type="button" class="btn btn-primary mr-3" id="submit-button">
+          Submit</button
+        ><button type="button" class="btn btn-success" id="generate">
+          New
+        </button>
+      </form>
+
+      <p class="h5 mt-3">Result:&ensp;<span id="result">N/A</span></p>
+    </div>
+
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+    <script>
+      document.getElementById("generate").addEventListener("click", generate);
+      document
+        .getElementById("noun-type-check")
+        .addEventListener("click", handleCheckbox);
+      document
+        .getElementById("submit-button")
+        .addEventListener("click", validateAnswer);
+      document
+        .getElementById("answer-row")
+        .addEventListener("keydown", submitOnEnter);
+    </script>
+  </body>
+</html>

@@ -1,0 +1,19 @@
+{
+  "name": "german-declension",
+  "version": "0.1.0",
+  "description": "German declension practice",
+  "main": "./index.js",
+  "scripts": {
+    "standardize": "standard --fix ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theodore-s-beers/german-declension.git"
+  },
+  "author": "Theo Beers",
+  "license": "MIT",
+  "devDependencies": {
+    "standard": "^14.3.4"
+  }
+}
