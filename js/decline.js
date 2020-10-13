@@ -532,7 +532,7 @@ function validateAnswer () {
       document.getElementById('result').classList.remove('text-danger')
       document.getElementById('result').classList.add('text-success')
     } else {
-      document.getElementById('result').innerText = 'False'
+      document.getElementById('result').innerText = 'Incorrect'
       document.getElementById('result').classList.remove('text-success')
       document.getElementById('result').classList.add('text-danger')
     }
