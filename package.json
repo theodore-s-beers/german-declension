@@ -2,9 +2,9 @@
   "name": "german-declension",
   "version": "0.1.0",
   "description": "German declension practice",
-  "main": "./index.js",
+  "main": "./js/decline.js",
   "scripts": {
-    "standardize": "standard --fix ./index.js",
+    "standardize": "standard --fix ./js/decline.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
