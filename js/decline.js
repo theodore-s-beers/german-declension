@@ -1,3 +1,7 @@
+//
+// WORD LISTS
+//
+
 const mascNouns = [
   'Teppich',
   'Sittich',
@@ -232,6 +236,17 @@ const adjectives = [
   'früh'
 ]
 
+//
+// GLOBAL VARIABLES
+//
+
+// These represent the correct answer, for validation
+let articleAnswer, adjectiveSuffix, nounSuffix
+
+//
+// PURE FUNCTIONS
+//
+
 function pickNounType () {
   const randomFour = Math.ceil(Math.random() * 4)
 
@@ -243,18 +258,6 @@ function pickNounType () {
     return 'feminine'
   } else {
     return 'masculine'
-  }
-}
-
-function pickArticle () {
-  const randomThree = Math.ceil(Math.random() * 3)
-
-  if (randomThree === 3) {
-    return 'none'
-  } else if (randomThree === 2) {
-    return 'indef.'
-  } else {
-    return 'def.'
   }
 }
 
@@ -272,12 +275,26 @@ function pickCase () {
   }
 }
 
+function pickArticle () {
+  const randomThree = Math.ceil(Math.random() * 3)
+
+  if (randomThree === 3) {
+    return 'none'
+  } else if (randomThree === 2) {
+    return 'indef.'
+  } else {
+    return 'def.'
+  }
+}
+
+// Generic function to pick an element from a set
 function pickElement (set) {
   const randomIndex = Math.floor(Math.random() * set.length)
-
   return set[randomIndex]
 }
 
+// Function to return a noun, given a noun type
+// This is called in the generate function
 function pickNoun (nounType) {
   if (nounType === 'plural') {
     return pickElement(plurNouns)
@@ -290,59 +307,8 @@ function pickNoun (nounType) {
   }
 }
 
-// eslint-disable-next-line no-unused-vars
-function generate () {
-  const nounType = pickNounType()
-  const desiredCase = pickCase()
-  let article = pickArticle()
-  const adjective = pickElement(adjectives)
-  const noun = pickNoun(nounType)
-
-  if (nounType === 'plural' && article === 'indef.') {
-    const randomTwo = Math.ceil(Math.random() * 2)
-
-    if (randomTwo === 2) {
-      article = 'none'
-    } else {
-      article = 'def.'
-    }
-  }
-
-  setAnswer(nounType, desiredCase, article)
-
-  document.getElementById('result').innerText = 'N/A'
-  document.getElementById('result').classList.remove('text-success')
-  document.getElementById('result').classList.remove('text-danger')
-
-  document.getElementById('noun-type').value = nounType
-  document.getElementById('desired-case').value = desiredCase
-  document.getElementById('desired-article').placeholder = article
-  document.getElementById('desired-article').value = ''
-  if (article === 'none') {
-    document.getElementById('desired-article').readOnly = true
-  } else {
-    document.getElementById('desired-article').readOnly = false
-  }
-  document.getElementById('chosen-adj').value = adjective
-  document.getElementById('adj-suffix').value = ''
-  document.getElementById('chosen-noun').value = noun
-  document.getElementById('noun-suffix').value = ''
-}
-
-// eslint-disable-next-line no-unused-vars
-function handleCheckbox () {
-  const checkbox = document.getElementById('noun-type-check')
-  const inputField = document.getElementById('noun-type')
-
-  if (checkbox.checked) {
-    inputField.style.color = '#495057'
-  } else {
-    inputField.style.color = 'transparent'
-  }
-}
-
-let articleAnswer, adjectiveSuffix, nounSuffix
-
+// Ok, here's the big one
+// Given the noun type, case, and article, return the correct answer
 function setAnswer (nounType, desiredCase, article) {
   if (nounType === 'plural') {
     if (desiredCase === 'accusative') {
@@ -515,14 +481,93 @@ function setAnswer (nounType, desiredCase, article) {
   }
 }
 
+//
+// DOM FUNCTIONS
+//
+
+// Generate a new problem
+// eslint-disable-next-line no-unused-vars
+function generate () {
+  const nounType = pickNounType()
+  const desiredCase = pickCase()
+  const adjective = pickElement(adjectives)
+  const noun = pickNoun(nounType)
+
+  // This needs to be mutable; see below
+  let article = pickArticle()
+
+  // If we get a plural noun and an indefinite article, reset the article
+  // Choose between a definite article and none
+  if (nounType === 'plural' && article === 'indef.') {
+    const randomTwo = Math.ceil(Math.random() * 2)
+
+    if (randomTwo === 2) {
+      article = 'none'
+    } else {
+      article = 'def.'
+    }
+  }
+
+  // Set the correct answer
+  setAnswer(nounType, desiredCase, article)
+
+  // Reset the result text
+  document.getElementById('result').innerText = 'N/A'
+  document.getElementById('result').classList.remove('text-success')
+  document.getElementById('result').classList.remove('text-danger')
+
+  // Populate noun type field
+  document.getElementById('noun-type').value = nounType
+
+  // Populate desired case field
+  document.getElementById('desired-case').value = desiredCase
+
+  // Set placeholder for desired article type
+  // Also clear field of any prior input
+  document.getElementById('desired-article').placeholder = article
+  document.getElementById('desired-article').value = ''
+
+  // Make article field readonly if desired type is "none"
+  if (article === 'none') {
+    document.getElementById('desired-article').readOnly = true
+  } else {
+    document.getElementById('desired-article').readOnly = false
+  }
+
+  // Populate adjective field
+  // Clear suffix field of any prior input
+  document.getElementById('chosen-adj').value = adjective
+  document.getElementById('adj-suffix').value = ''
+
+  // Populate noun field
+  // Clear suffix field of any prior input
+  document.getElementById('chosen-noun').value = noun
+  document.getElementById('noun-suffix').value = ''
+}
+
+// Handle the checkbox to hide or show noun type
+// eslint-disable-next-line no-unused-vars
+function handleCheckbox () {
+  const checkbox = document.getElementById('noun-type-check')
+  const nounTypeField = document.getElementById('noun-type')
+
+  if (checkbox.checked) {
+    // This is the default color in Bootstrap
+    nounTypeField.style.color = '#495057'
+  } else {
+    nounTypeField.style.color = 'transparent'
+  }
+}
+
+// Validate the submitted answer
 // eslint-disable-next-line no-unused-vars
 function validateAnswer () {
-  const articleSubmission = document.getElementById('desired-article').value
-  const adjSuffixSubmission = document.getElementById('adj-suffix').value
-  const nounSuffixSubmission = document.getElementById('noun-suffix').value
-  const chosenNoun = document.getElementById('chosen-noun').value
+  // Do nothing unless a problem has been generated
+  if (articleAnswer && adjectiveSuffix && nounSuffix) {
+    const articleSubmission = document.getElementById('desired-article').value
+    const adjSuffixSubmission = document.getElementById('adj-suffix').value
+    const nounSuffixSubmission = document.getElementById('noun-suffix').value
 
-  if (chosenNoun) {
     if (
       articleSubmission === articleAnswer &&
       adjSuffixSubmission === adjectiveSuffix &&
@@ -539,6 +584,7 @@ function validateAnswer () {
   }
 }
 
+// Handle answer submission with Enter key
 // eslint-disable-next-line no-unused-vars
 function submitOnEnter (event) {
   if (event.key === 'Enter') {
