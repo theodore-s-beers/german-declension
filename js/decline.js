@@ -562,7 +562,7 @@ function handleCheckbox () {
 // Validate the submitted answer
 // eslint-disable-next-line no-unused-vars
 function validateAnswer () {
-  // Do nothing unless a problem (and answer) has been generated
+  // Do nothing before a problem has been generated
   if (adjectiveSuffix) {
     const articleSubmission = document.getElementById('desired-article').value
     const adjSuffixSubmission = document.getElementById('adj-suffix').value
