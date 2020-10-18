@@ -3,207 +3,206 @@
 //
 
 const mascNouns = [
-  'Teppich',
-  'Sittich',
-  'Abgleich',
-  'Bereich',
-  'Teich',
-  'Ventilator',
-  'Motor',
-  'Marmor',
-  'König',
-  'Honig',
-  'Essig',
-  'Schmetterling',
-  'Frühling',
-  'Lehrling',
-  'Zwilling',
-  'Optimismus',
-  'Magnetismus',
-  'Expressionismus',
-  'Feudalismus',
-  'Kapitalismus',
-  'Bär',
-  'Veterinär',
-  'Aktionär',
-  'Sekretär',
-  'Diamant',
-  'Fabrikant',
-  'Elefant',
-  'Lieferant',
-  'Schlüssel',
-  'Löffel',
-  'Mantel',
-  'Montag',
-  'Mittwoch',
-  'Oktober',
-  'Dezember',
-  'Sommer',
-  'Herbst',
-  'Winter',
-  'Frühling',
-  'Onkel',
-  'Vater',
-  'Junge',
-  'Prinz',
-  'Held',
-  'Sänger',
-  'Koch',
-  'Lehrer',
-  'Norden',
-  'Süden',
-  'Westen',
-  'Osten',
-  'Regen',
-  'Schnee',
-  'Wind',
-  'Blitz'
+  { noun: 'Teppich', suffix: 's', weak: false },
+  { noun: 'Sittich', suffix: 's', weak: false },
+  { noun: 'Abgleich', suffix: 's', weak: false },
+  { noun: 'Bereich', suffix: 's', weak: false },
+  { noun: 'Teich', suffix: 'es', weak: false },
+  { noun: 'Ventilator', suffix: 's', weak: false },
+  { noun: 'Motor', suffix: 's', weak: false },
+  { noun: 'Marmor', suffix: 's', weak: false },
+  { noun: 'König', suffix: 's', weak: false },
+  { noun: 'Honig', suffix: 's', weak: false },
+  { noun: 'Essig', suffix: 's', weak: false },
+  { noun: 'Schmetterling', suffix: 's', weak: false },
+  { noun: 'Frühling', suffix: 's', weak: false },
+  { noun: 'Lehrling', suffix: 's', weak: false },
+  { noun: 'Zwilling', suffix: 's', weak: false },
+  { noun: 'Optimismus', suffix: '', weak: false },
+  { noun: 'Magnetismus', suffix: '', weak: false },
+  { noun: 'Expressionismus', suffix: '', weak: false },
+  { noun: 'Feudalismus', suffix: '', weak: false },
+  { noun: 'Kapitalismus', suffix: '', weak: false },
+  { noun: 'Bär', suffix: 'en', weak: true },
+  { noun: 'Veterinär', suffix: 's', weak: false },
+  { noun: 'Aktionär', suffix: 's', weak: false },
+  { noun: 'Sekretär', suffix: 's', weak: false },
+  { noun: 'Diamant', suffix: 'en', weak: true },
+  { noun: 'Fabrikant', suffix: 'en', weak: true },
+  { noun: 'Elefant', suffix: 'en', weak: true },
+  { noun: 'Lieferant', suffix: 'en', weak: true },
+  { noun: 'Schlüssel', suffix: 's', weak: false },
+  { noun: 'Löffel', suffix: 's', weak: false },
+  { noun: 'Mantel', suffix: 's', weak: false },
+  { noun: 'Montag', suffix: 's', weak: false },
+  { noun: 'Mittwoch', suffix: 's', weak: false },
+  { noun: 'Oktober', suffix: 's', weak: false },
+  { noun: 'Dezember', suffix: 's', weak: false },
+  { noun: 'Sommer', suffix: 's', weak: false },
+  { noun: 'Herbst', suffix: 'es', weak: false },
+  { noun: 'Winter', suffix: 's', weak: false },
+  { noun: 'Onkel', suffix: 's', weak: false },
+  { noun: 'Vater', suffix: 's', weak: false },
+  { noun: 'Junge', suffix: 'n', weak: true },
+  { noun: 'Prinz', suffix: 'en', weak: true },
+  { noun: 'Held', suffix: 'en', weak: true },
+  { noun: 'Sänger', suffix: 's', weak: false },
+  { noun: 'Koch', suffix: 'es', weak: false },
+  { noun: 'Lehrer', suffix: 's', weak: false },
+  { noun: 'Norden', suffix: 's', weak: false },
+  { noun: 'Süden', suffix: 's', weak: false },
+  { noun: 'Westen', suffix: 's', weak: false },
+  { noun: 'Osten', suffix: 's', weak: false },
+  { noun: 'Regen', suffix: 's', weak: false },
+  { noun: 'Schnee', suffix: 's', weak: false },
+  { noun: 'Wind', suffix: 'es', weak: false },
+  { noun: 'Blitz', suffix: 'es', weak: false }
 ]
 
 const femNouns = [
-  'Polizei',
-  'Abtei',
-  'Konditorei',
-  'Leckerei',
-  'Datei',
-  'Zeitung',
-  'Dichtung',
-  'Empfehlung',
-  'Erfahrung',
-  'Lehrerin',
-  'Darstellerin',
-  'Eignerin',
-  'Australierin',
-  'Chefin',
-  'Freiheit',
-  'Neuheit',
-  'Sicherheit',
-  'Trägheit',
-  'Gefährlichkeit',
-  'Höflichkeit',
-  'Langsamkeit',
-  'Häufigkeit',
-  'Produktion',
-  'Funktion',
-  'Kanalisation',
-  'Nation',
-  'Geografie',
-  'Garantie',
-  'Fantasie',
-  'Galerie',
-  'Astronomie',
-  'Freundschaft',
-  'Gemeinschaft',
-  'Wirtschaft',
-  'Wissenschaft',
-  'Kultur',
-  'Natur',
-  'Diktatur',
-  'Agentur',
-  'Marmelade',
-  'Limonade',
-  'Schokolade',
-  'Schublade',
-  'Frau',
-  'Mutter',
-  'Schwester',
-  'Tanne',
-  'Eiche',
-  'Linde',
-  'Rose',
-  'Tulpe',
-  'Orchidee',
-  'Birne',
-  'Banane',
-  'Pflaume',
-  'Zahl'
+  { noun: 'Polizei' },
+  { noun: 'Abtei' },
+  { noun: 'Konditorei' },
+  { noun: 'Leckerei' },
+  { noun: 'Datei' },
+  { noun: 'Zeitung' },
+  { noun: 'Dichtung' },
+  { noun: 'Empfehlung' },
+  { noun: 'Erfahrung' },
+  { noun: 'Lehrerin' },
+  { noun: 'Darstellerin' },
+  { noun: 'Eignerin' },
+  { noun: 'Australierin' },
+  { noun: 'Chefin' },
+  { noun: 'Freiheit' },
+  { noun: 'Neuheit' },
+  { noun: 'Sicherheit' },
+  { noun: 'Trägheit' },
+  { noun: 'Gefährlichkeit' },
+  { noun: 'Höflichkeit' },
+  { noun: 'Langsamkeit' },
+  { noun: 'Häufigkeit' },
+  { noun: 'Produktion' },
+  { noun: 'Funktion' },
+  { noun: 'Kanalisation' },
+  { noun: 'Nation' },
+  { noun: 'Geografie' },
+  { noun: 'Garantie' },
+  { noun: 'Fantasie' },
+  { noun: 'Galerie' },
+  { noun: 'Astronomie' },
+  { noun: 'Freundschaft' },
+  { noun: 'Gemeinschaft' },
+  { noun: 'Wirtschaft' },
+  { noun: 'Wissenschaft' },
+  { noun: 'Kultur' },
+  { noun: 'Natur' },
+  { noun: 'Diktatur' },
+  { noun: 'Agentur' },
+  { noun: 'Marmelade' },
+  { noun: 'Limonade' },
+  { noun: 'Schokolade' },
+  { noun: 'Schublade' },
+  { noun: 'Frau' },
+  { noun: 'Mutter' },
+  { noun: 'Schwester' },
+  { noun: 'Tanne' },
+  { noun: 'Eiche' },
+  { noun: 'Linde' },
+  { noun: 'Rose' },
+  { noun: 'Tulpe' },
+  { noun: 'Orchidee' },
+  { noun: 'Birne' },
+  { noun: 'Banane' },
+  { noun: 'Pflaume' },
+  { noun: 'Zahl' }
 ]
 
 const neutNouns = [
-  'Mädchen',
-  'Pfännchen',
-  'Maskottchen',
-  'Märchen',
-  'Päckchen',
-  'Häuslein',
-  'Vöglein',
-  'Bächlein',
-  'Büchlein',
-  'Bett',
-  'Ballett',
-  'Buffet',
-  'Omelett',
-  'Brett',
-  'Medikament',
-  'Testament',
-  'Element',
-  'Instrument',
-  'Fragment',
-  'Datum',
-  'Wachstum',
-  'Ultimatum',
-  'Heiligtum',
-  'Votum',
-  'Niveau',
-  'Plateau',
-  'Kind',
-  'Lamm',
-  'Grün',
-  'Blau',
-  'Deutsch',
-  'Französisch',
-  'Spanisch',
-  'Baby',
-  'Handy',
-  'Image',
-  'Gold',
-  'Kupfer',
-  'Gebirge',
-  'Gemüse'
+  { noun: 'Mädchen', suffix: 's' },
+  { noun: 'Pfännchen', suffix: 's' },
+  { noun: 'Maskottchen', suffix: 's' },
+  { noun: 'Märchen', suffix: 's' },
+  { noun: 'Päckchen', suffix: 's' },
+  { noun: 'Häuslein', suffix: 's' },
+  { noun: 'Vöglein', suffix: 's' },
+  { noun: 'Bächlein', suffix: 's' },
+  { noun: 'Büchlein', suffix: 's' },
+  { noun: 'Bett', suffix: 'es' },
+  { noun: 'Ballett', suffix: 's' },
+  { noun: 'Buffet', suffix: 's' },
+  { noun: 'Omelett', suffix: 's' },
+  { noun: 'Brett', suffix: 'es' },
+  { noun: 'Medikament', suffix: 's' },
+  { noun: 'Testament', suffix: 's' },
+  { noun: 'Element', suffix: 's' },
+  { noun: 'Instrument', suffix: 's' },
+  { noun: 'Fragment', suffix: 's' },
+  { noun: 'Datum', suffix: 's' },
+  { noun: 'Wachstum', suffix: 's' },
+  { noun: 'Ultimatum', suffix: 's' },
+  { noun: 'Heiligtum', suffix: 's' },
+  { noun: 'Votum', suffix: 's' },
+  { noun: 'Niveau', suffix: 's' },
+  { noun: 'Plateau', suffix: 's' },
+  { noun: 'Kind', suffix: 'es' },
+  { noun: 'Lamm', suffix: 'es' },
+  { noun: 'Grün', suffix: 's' },
+  { noun: 'Blau', suffix: 's' },
+  { noun: 'Deutsch', suffix: '' },
+  { noun: 'Französisch', suffix: '' },
+  { noun: 'Spanisch', suffix: '' },
+  { noun: 'Baby', suffix: 's' },
+  { noun: 'Handy', suffix: 's' },
+  { noun: 'Image', suffix: 's' },
+  { noun: 'Gold', suffix: 'es' },
+  { noun: 'Kupfer', suffix: 's' },
+  { noun: 'Gebirge', suffix: 's' },
+  { noun: 'Gemüse', suffix: 's' }
 ]
 
 const plurNouns = [
-  'Ängste',
-  'Äpfel',
-  'Ärzte',
-  'Bäume',
-  'Besuche',
-  'Bilder',
-  'Bücher',
-  'Eier',
-  'Ergebnisse',
-  'Erlaubnisse',
-  'Flöße',
-  'Flüchtlinge',
-  'Friseure',
-  'Früchte',
-  'Gedichte',
-  'Geister',
-  'Geschwister',
-  'Häuser',
-  'Jahre',
-  'Kenntnisse',
-  'Kinder',
-  'Klöster',
-  'Länder',
-  'Leiber',
-  'Leute',
-  'Lieder',
-  'Mächte',
-  'Männer',
-  'Münder',
-  'Mütter',
-  'Reichtümer',
-  'Rufe',
-  'Schicksale',
-  'Skier',
-  'Söhne',
-  'Städte',
-  'Töchter',
-  'Väter',
-  'Wälder',
-  'Wörter',
-  'Züge'
+  { noun: 'Ängste', suffix: 'n' },
+  { noun: 'Äpfel', suffix: 'n' },
+  { noun: 'Ärzte', suffix: 'n' },
+  { noun: 'Bäume', suffix: 'n' },
+  { noun: 'Besuche', suffix: 'n' },
+  { noun: 'Bilder', suffix: 'n' },
+  { noun: 'Bücher', suffix: 'n' },
+  { noun: 'Eier', suffix: 'n' },
+  { noun: 'Ergebnisse', suffix: 'n' },
+  { noun: 'Erlaubnisse', suffix: 'n' },
+  { noun: 'Flöße', suffix: 'n' },
+  { noun: 'Flüchtlinge', suffix: 'n' },
+  { noun: 'Friseure', suffix: 'n' },
+  { noun: 'Früchte', suffix: 'n' },
+  { noun: 'Gedichte', suffix: 'n' },
+  { noun: 'Geister', suffix: 'n' },
+  { noun: 'Geschwister', suffix: 'n' },
+  { noun: 'Häuser', suffix: 'n' },
+  { noun: 'Jahre', suffix: 'n' },
+  { noun: 'Kenntnisse', suffix: 'n' },
+  { noun: 'Kinder', suffix: 'n' },
+  { noun: 'Klöster', suffix: 'n' },
+  { noun: 'Länder', suffix: 'n' },
+  { noun: 'Leiber', suffix: 'n' },
+  { noun: 'Leute', suffix: 'n' },
+  { noun: 'Lieder', suffix: 'n' },
+  { noun: 'Mächte', suffix: 'n' },
+  { noun: 'Männer', suffix: 'n' },
+  { noun: 'Münder', suffix: 'n' },
+  { noun: 'Mütter', suffix: 'n' },
+  { noun: 'Reichtümer', suffix: 'n' },
+  { noun: 'Rufe', suffix: 'n' },
+  { noun: 'Schicksale', suffix: 'n' },
+  { noun: 'Skier', suffix: 'n' },
+  { noun: 'Söhne', suffix: 'n' },
+  { noun: 'Städte', suffix: 'n' },
+  { noun: 'Töchter', suffix: 'n' },
+  { noun: 'Väter', suffix: 'n' },
+  { noun: 'Wälder', suffix: 'n' },
+  { noun: 'Wörter', suffix: 'n' },
+  { noun: 'Züge', suffix: 'n' }
 ]
 
 const adjectives = [
@@ -230,7 +229,6 @@ const adjectives = [
   'hoch',
   'berühmt',
   'still',
-  'wenig',
   'gleich',
   'jung',
   'früh'
@@ -309,10 +307,16 @@ function pickNoun (nounType) {
 
 // Ok, here's the big one
 // Given the noun type, case, and article, return the correct answer
-function setAnswer (nounType, desiredCase, article) {
+function setAnswer (
+  nounType,
+  chosenNounSuffix,
+  chosenNounWeakness,
+  desiredCase,
+  article
+) {
+  nounSuffix = ''
   if (nounType === 'plural') {
     if (desiredCase === 'accusative') {
-      nounSuffix = ''
       if (article === 'none') {
         articleAnswer = ''
         adjectiveSuffix = 'e'
@@ -322,14 +326,13 @@ function setAnswer (nounType, desiredCase, article) {
       }
     } else if (desiredCase === 'dative') {
       adjectiveSuffix = 'en'
-      nounSuffix = 'n'
+      nounSuffix = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else {
         articleAnswer = 'den'
       }
     } else if (desiredCase === 'genitive') {
-      nounSuffix = ''
       if (article === 'none') {
         articleAnswer = ''
         adjectiveSuffix = 'er'
@@ -338,7 +341,6 @@ function setAnswer (nounType, desiredCase, article) {
         adjectiveSuffix = 'en'
       }
     } else {
-      nounSuffix = ''
       if (article === 'none') {
         articleAnswer = ''
         adjectiveSuffix = 'e'
@@ -348,7 +350,6 @@ function setAnswer (nounType, desiredCase, article) {
       }
     }
   } else if (nounType === 'neuter') {
-    nounSuffix = ''
     if (desiredCase === 'accusative') {
       if (article === 'none') {
         articleAnswer = ''
@@ -373,6 +374,7 @@ function setAnswer (nounType, desiredCase, article) {
       }
     } else if (desiredCase === 'genitive') {
       adjectiveSuffix = 'en'
+      nounSuffix = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -393,7 +395,6 @@ function setAnswer (nounType, desiredCase, article) {
       }
     }
   } else if (nounType === 'feminine') {
-    nounSuffix = ''
     if (desiredCase === 'accusative') {
       adjectiveSuffix = 'e'
       if (article === 'none') {
@@ -436,9 +437,11 @@ function setAnswer (nounType, desiredCase, article) {
       }
     }
   } else {
-    nounSuffix = ''
     if (desiredCase === 'accusative') {
       adjectiveSuffix = 'en'
+      if (chosenNounWeakness === true) {
+        nounSuffix = chosenNounSuffix
+      }
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -447,6 +450,9 @@ function setAnswer (nounType, desiredCase, article) {
         articleAnswer = 'den'
       }
     } else if (desiredCase === 'dative') {
+      if (chosenNounWeakness === true) {
+        nounSuffix = chosenNounSuffix
+      }
       if (article === 'none') {
         articleAnswer = ''
         adjectiveSuffix = 'em'
@@ -459,6 +465,7 @@ function setAnswer (nounType, desiredCase, article) {
       }
     } else if (desiredCase === 'genitive') {
       adjectiveSuffix = 'en'
+      nounSuffix = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -491,7 +498,12 @@ function generate () {
   const nounType = pickNounType()
   const desiredCase = pickCase()
   const adjective = pickElement(adjectives)
-  const noun = pickNoun(nounType)
+
+  // This has become a bit convoluted, now that noun arrays contain objects
+  const chosenElement = pickNoun(nounType)
+  const chosenNoun = chosenElement.noun
+  const chosenNounSuffix = chosenElement.suffix
+  const chosenNounWeakness = chosenElement.weak
 
   // This needs to be mutable; see below
   let article = pickArticle()
@@ -509,7 +521,13 @@ function generate () {
   }
 
   // Set the correct answer
-  setAnswer(nounType, desiredCase, article)
+  setAnswer(
+    nounType,
+    chosenNounSuffix,
+    chosenNounWeakness,
+    desiredCase,
+    article
+  )
 
   // Reset the result text
   document.getElementById('result').innerText = 'N/A'
@@ -541,7 +559,7 @@ function generate () {
 
   // Populate noun field
   // Clear suffix field of any prior input
-  document.getElementById('chosen-noun').value = noun
+  document.getElementById('chosen-noun').value = chosenNoun
   document.getElementById('noun-suffix').value = ''
 }
 
