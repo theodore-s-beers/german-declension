@@ -4,6 +4,7 @@
   "description": "German declension practice",
   "main": "./js/decline.js",
   "scripts": {
+    "minify": "terser ./js/decline.js --mangle --source-map -o ./js/decline.min.js",
     "standardize": "standard --fix ./js/decline.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -14,6 +15,7 @@
   "author": "Theo Beers",
   "license": "MIT",
   "devDependencies": {
-    "standard": "^14.3.4"
+    "standard": "^14.3.4",
+    "terser": "^5.3.6"
   }
 }

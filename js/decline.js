@@ -239,20 +239,20 @@ const adjectives = [
 //
 
 // These represent the correct answer, for validation
-let articleAnswer, adjectiveSuffix, nounSuffix
+let articleAnswer, adjSuffixAnswer, nounSuffixAnswer
 
 //
 // PURE FUNCTIONS
 //
 
 function pickNounType () {
-  const randomFour = Math.ceil(Math.random() * 4)
+  const randomFour = Math.floor(Math.random() * 4)
 
-  if (randomFour === 4) {
+  if (randomFour === 3) {
     return 'plural'
-  } else if (randomFour === 3) {
-    return 'neuter'
   } else if (randomFour === 2) {
+    return 'neuter'
+  } else if (randomFour === 1) {
     return 'feminine'
   } else {
     return 'masculine'
@@ -260,25 +260,25 @@ function pickNounType () {
 }
 
 function pickCase () {
-  const randomFour = Math.ceil(Math.random() * 4)
+  const randomFour = Math.floor(Math.random() * 4)
 
-  if (randomFour === 4) {
+  if (randomFour === 3) {
     return 'accusative'
-  } else if (randomFour === 3) {
-    return 'dative'
   } else if (randomFour === 2) {
+    return 'dative'
+  } else if (randomFour === 1) {
     return 'genitive'
   } else {
     return 'nominative'
   }
 }
 
-function pickArticle () {
-  const randomThree = Math.ceil(Math.random() * 3)
+function pickArticleType () {
+  const randomThree = Math.floor(Math.random() * 3)
 
-  if (randomThree === 3) {
+  if (randomThree === 2) {
     return 'none'
-  } else if (randomThree === 2) {
+  } else if (randomThree === 1) {
     return 'indef.'
   } else {
     return 'def.'
@@ -314,19 +314,19 @@ function setAnswer (
   desiredCase,
   article
 ) {
-  nounSuffix = ''
+  nounSuffixAnswer = ''
   if (nounType === 'plural') {
     if (desiredCase === 'accusative') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'e'
+        adjSuffixAnswer = 'e'
       } else {
         articleAnswer = 'die'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else if (desiredCase === 'dative') {
-      adjectiveSuffix = 'en'
-      nounSuffix = chosenNounSuffix
+      adjSuffixAnswer = 'en'
+      nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else {
@@ -335,46 +335,46 @@ function setAnswer (
     } else if (desiredCase === 'genitive') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'er'
+        adjSuffixAnswer = 'er'
       } else {
         articleAnswer = 'der'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'e'
+        adjSuffixAnswer = 'e'
       } else {
         articleAnswer = 'die'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     }
   } else if (nounType === 'neuter') {
     if (desiredCase === 'accusative') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'es'
+        adjSuffixAnswer = 'es'
       } else if (article === 'indef.') {
         articleAnswer = 'ein'
-        adjectiveSuffix = 'es'
+        adjSuffixAnswer = 'es'
       } else {
         articleAnswer = 'das'
-        adjectiveSuffix = 'e'
+        adjSuffixAnswer = 'e'
       }
     } else if (desiredCase === 'dative') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'em'
+        adjSuffixAnswer = 'em'
       } else if (article === 'indef.') {
         articleAnswer = 'einem'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       } else {
         articleAnswer = 'dem'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else if (desiredCase === 'genitive') {
-      adjectiveSuffix = 'en'
-      nounSuffix = chosenNounSuffix
+      adjSuffixAnswer = 'en'
+      nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -385,18 +385,18 @@ function setAnswer (
     } else {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'es'
+        adjSuffixAnswer = 'es'
       } else if (article === 'indef.') {
         articleAnswer = 'ein'
-        adjectiveSuffix = 'es'
+        adjSuffixAnswer = 'es'
       } else {
         articleAnswer = 'das'
-        adjectiveSuffix = 'e'
+        adjSuffixAnswer = 'e'
       }
     }
   } else if (nounType === 'feminine') {
     if (desiredCase === 'accusative') {
-      adjectiveSuffix = 'e'
+      adjSuffixAnswer = 'e'
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -407,27 +407,27 @@ function setAnswer (
     } else if (desiredCase === 'dative') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'er'
+        adjSuffixAnswer = 'er'
       } else if (article === 'indef.') {
         articleAnswer = 'einer'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       } else {
         articleAnswer = 'der'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else if (desiredCase === 'genitive') {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'er'
+        adjSuffixAnswer = 'er'
       } else if (article === 'indef.') {
         articleAnswer = 'einer'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       } else {
         articleAnswer = 'der'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else {
-      adjectiveSuffix = 'e'
+      adjSuffixAnswer = 'e'
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -438,9 +438,9 @@ function setAnswer (
     }
   } else {
     if (desiredCase === 'accusative') {
-      adjectiveSuffix = 'en'
+      adjSuffixAnswer = 'en'
       if (chosenNounWeakness === true) {
-        nounSuffix = chosenNounSuffix
+        nounSuffixAnswer = chosenNounSuffix
       }
       if (article === 'none') {
         articleAnswer = ''
@@ -451,21 +451,21 @@ function setAnswer (
       }
     } else if (desiredCase === 'dative') {
       if (chosenNounWeakness === true) {
-        nounSuffix = chosenNounSuffix
+        nounSuffixAnswer = chosenNounSuffix
       }
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'em'
+        adjSuffixAnswer = 'em'
       } else if (article === 'indef.') {
         articleAnswer = 'einem'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       } else {
         articleAnswer = 'dem'
-        adjectiveSuffix = 'en'
+        adjSuffixAnswer = 'en'
       }
     } else if (desiredCase === 'genitive') {
-      adjectiveSuffix = 'en'
-      nounSuffix = chosenNounSuffix
+      adjSuffixAnswer = 'en'
+      nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
       } else if (article === 'indef.') {
@@ -476,13 +476,13 @@ function setAnswer (
     } else {
       if (article === 'none') {
         articleAnswer = ''
-        adjectiveSuffix = 'er'
+        adjSuffixAnswer = 'er'
       } else if (article === 'indef.') {
         articleAnswer = 'ein'
-        adjectiveSuffix = 'er'
+        adjSuffixAnswer = 'er'
       } else {
         articleAnswer = 'der'
-        adjectiveSuffix = 'e'
+        adjSuffixAnswer = 'e'
       }
     }
   }
@@ -506,17 +506,17 @@ function generate () {
   const chosenNounWeakness = chosenElement.weak
 
   // This needs to be mutable; see below
-  let article = pickArticle()
+  let articleType = pickArticleType()
 
   // If we get a plural noun and an indefinite article, reset the article
   // Choose between a definite article and none
-  if (nounType === 'plural' && article === 'indef.') {
-    const randomTwo = Math.ceil(Math.random() * 2)
+  if (nounType === 'plural' && articleType === 'indef.') {
+    const randomTwo = Math.floor(Math.random() * 2)
 
-    if (randomTwo === 2) {
-      article = 'none'
+    if (randomTwo === 1) {
+      articleType = 'none'
     } else {
-      article = 'def.'
+      articleType = 'def.'
     }
   }
 
@@ -526,7 +526,7 @@ function generate () {
     chosenNounSuffix,
     chosenNounWeakness,
     desiredCase,
-    article
+    articleType
   )
 
   // Reset the result text
@@ -542,11 +542,11 @@ function generate () {
 
   // Set placeholder for desired article type
   // Also clear field of any prior input
-  document.getElementById('desired-article').placeholder = article
+  document.getElementById('desired-article').placeholder = articleType
   document.getElementById('desired-article').value = ''
 
   // Make article field readonly if desired type is "none"
-  if (article === 'none') {
+  if (articleType === 'none') {
     document.getElementById('desired-article').readOnly = true
   } else {
     document.getElementById('desired-article').readOnly = false
@@ -581,15 +581,15 @@ function handleCheckbox () {
 // eslint-disable-next-line no-unused-vars
 function validateAnswer () {
   // Do nothing before a problem has been generated
-  if (adjectiveSuffix) {
+  if (adjSuffixAnswer) {
     const articleSubmission = document.getElementById('desired-article').value
     const adjSuffixSubmission = document.getElementById('adj-suffix').value
     const nounSuffixSubmission = document.getElementById('noun-suffix').value
 
     if (
       articleSubmission === articleAnswer &&
-      adjSuffixSubmission === adjectiveSuffix &&
-      nounSuffixSubmission === nounSuffix
+      adjSuffixSubmission === adjSuffixAnswer &&
+      nounSuffixSubmission === nounSuffixAnswer
     ) {
       document.getElementById('result').innerText = 'Correct'
       document.getElementById('result').classList.remove('text-danger')
