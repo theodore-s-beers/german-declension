@@ -226,7 +226,6 @@ const adjectives = [
   'lang',
   'schmal',
   'niedrig',
-  'hoch',
   'berühmt',
   'still',
   'gleich',
