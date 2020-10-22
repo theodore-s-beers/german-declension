@@ -240,6 +240,16 @@ const adjectives = [
 // These represent the correct answer, for validation
 let articleAnswer, adjSuffixAnswer, nounSuffixAnswer
 
+// This tracks the most recent noun type, to prevent repetition
+// I'll find a better approach at some point
+let lastNounType
+
+/* For testing purposes
+let mascTally = 0
+let femTally = 0
+let neutTally = 0
+let plurTally = 0 */
+
 //
 // PURE FUNCTIONS
 //
@@ -248,13 +258,49 @@ function pickNounType () {
   const randomFour = Math.floor(Math.random() * 4)
 
   if (randomFour === 3) {
-    return 'plural'
+    // If this is a repeat, re-run
+    if (lastNounType === 'plural') {
+      return pickNounType()
+    } else {
+      lastNounType = 'plural'
+      /* For testing purposes
+      plurTally += 1
+      console.log('Plural:', plurTally) */
+      return 'plural'
+    }
   } else if (randomFour === 2) {
-    return 'neuter'
+    // If this is a repeat, re-run
+    if (lastNounType === 'neuter') {
+      return pickNounType()
+    } else {
+      lastNounType = 'neuter'
+      /* For testing purposes
+      neutTally += 1
+      console.log('Neuter:', neutTally) */
+      return 'neuter'
+    }
   } else if (randomFour === 1) {
-    return 'feminine'
+    // If this is a repeat, re-run
+    if (lastNounType === 'feminine') {
+      return pickNounType()
+    } else {
+      lastNounType = 'feminine'
+      /* For testing purposes
+      femTally += 1
+      console.log('Feminine:', femTally) */
+      return 'feminine'
+    }
   } else {
-    return 'masculine'
+    // If this is a repeat, re-run
+    if (lastNounType === 'masculine') {
+      return pickNounType()
+    } else {
+      lastNounType = 'masculine'
+      /* For testing purposes
+      mascTally += 1
+      console.log('Masculine:', mascTally) */
+      return 'masculine'
+    }
   }
 }
 
