@@ -238,69 +238,96 @@ const adjectives = [
 //
 
 // These represent the correct answer, for validation
-let articleAnswer, adjSuffixAnswer, nounSuffixAnswer
+let articleAnswer = ''
+let adjSuffixAnswer = ''
+let nounSuffixAnswer = ''
 
-// This tracks the most recent noun type, to prevent repetition
-// I'll find a better approach at some point
-let lastNounType
-
-/* For testing purposes
+// Track how many times each noun type has been selected
 let mascTally = 0
 let femTally = 0
 let neutTally = 0
-let plurTally = 0 */
+let plurTally = 0
 
 //
 // PURE FUNCTIONS
 //
 
+function balance () {
+  const tallyArray = [mascTally, femTally, neutTally, plurTally]
+
+  const min = Math.min(...tallyArray)
+  const max = Math.max(...tallyArray)
+
+  const minIndex = tallyArray.indexOf(min)
+
+  let minName = ''
+
+  if (minIndex === 3) {
+    minName = 'plural'
+  } else if (minIndex === 2) {
+    minName = 'neuter'
+  } else if (minIndex === 1) {
+    minName = 'feminine'
+  } else {
+    minName = 'masculine'
+  }
+
+  if (min === 0 && max > 2) {
+    return minName
+  } else if (min === 0) {
+    // no-op
+  } else if (max / min > 2) {
+    return minName
+  } else if (max - min > 10) {
+    return minName
+  } else {
+    // no-op
+  }
+}
+
 function pickNounType () {
+  const balanceCheck = balance()
+
+  if (typeof balanceCheck === 'undefined') {
+    // no-op
+  } else if (balanceCheck === 'plural') {
+    // console.log('Bumped plural')
+    plurTally += 1
+    return 'plural'
+  } else if (balanceCheck === 'neuter') {
+    // console.log('Bumped neuter')
+    neutTally += 1
+    return 'neuter'
+  } else if (balanceCheck === 'feminine') {
+    // console.log('Bumped feminine')
+    femTally += 1
+    return 'feminine'
+  } else if (balanceCheck === 'masculine') {
+    // console.log('Bumped masculine')
+    mascTally += 1
+    return 'masculine'
+  } else {
+    console.log('Something went wrong')
+  }
+
   const randomFour = Math.floor(Math.random() * 4)
 
   if (randomFour === 3) {
-    // If this is a repeat, re-run
-    if (lastNounType === 'plural') {
-      return pickNounType()
-    } else {
-      lastNounType = 'plural'
-      /* For testing purposes
-      plurTally += 1
-      console.log('Plural:', plurTally) */
-      return 'plural'
-    }
+    plurTally += 1
+    // console.log('Plural:', plurTally)
+    return 'plural'
   } else if (randomFour === 2) {
-    // If this is a repeat, re-run
-    if (lastNounType === 'neuter') {
-      return pickNounType()
-    } else {
-      lastNounType = 'neuter'
-      /* For testing purposes
-      neutTally += 1
-      console.log('Neuter:', neutTally) */
-      return 'neuter'
-    }
+    neutTally += 1
+    // console.log('Neuter:', neutTally)
+    return 'neuter'
   } else if (randomFour === 1) {
-    // If this is a repeat, re-run
-    if (lastNounType === 'feminine') {
-      return pickNounType()
-    } else {
-      lastNounType = 'feminine'
-      /* For testing purposes
-      femTally += 1
-      console.log('Feminine:', femTally) */
-      return 'feminine'
-    }
+    femTally += 1
+    // console.log('Feminine:', femTally)
+    return 'feminine'
   } else {
-    // If this is a repeat, re-run
-    if (lastNounType === 'masculine') {
-      return pickNounType()
-    } else {
-      lastNounType = 'masculine'
-      /* For testing purposes
-      mascTally += 1
-      console.log('Masculine:', mascTally) */
-      return 'masculine'
-    }
+    mascTally += 1
+    // console.log('Masculine:', mascTally)
+    return 'masculine'
   }
 }
 
