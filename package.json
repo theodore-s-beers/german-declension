@@ -16,6 +16,6 @@
   "license": "MIT",
   "devDependencies": {
     "standard": "^15.0.0",
-    "terser": "^5.3.7"
+    "terser": "^5.3.8"
   }
 }
