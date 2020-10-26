@@ -8,6 +8,7 @@ const mascNouns = [
   { noun: 'Bär', suffix: 'en', weak: true },
   { noun: 'Bereich', suffix: 's', weak: false },
   { noun: 'Blitz', suffix: 'es', weak: false },
+  { noun: 'Bug', suffix: 's', weak: false },
   { noun: 'Dezember', suffix: 's', weak: false },
   { noun: 'Diamant', suffix: 'en', weak: true },
   { noun: 'Elefant', suffix: 'en', weak: true },
@@ -15,6 +16,8 @@ const mascNouns = [
   { noun: 'Expressionismus', suffix: '', weak: false },
   { noun: 'Fabrikant', suffix: 'en', weak: true },
   { noun: 'Feudalismus', suffix: '', weak: false },
+  { noun: 'Flug', suffix: 'es', weak: false },
+  { noun: 'Frack', suffix: 's', weak: false },
   { noun: 'Frühling', suffix: 's', weak: false },
   { noun: 'Held', suffix: 'en', weak: true },
   { noun: 'Herbst', suffix: 'es', weak: false },
@@ -23,6 +26,7 @@ const mascNouns = [
   { noun: 'Kapitalismus', suffix: '', weak: false },
   { noun: 'Koch', suffix: 's', weak: false },
   { noun: 'König', suffix: 's', weak: false },
+  { noun: 'Krug', suffix: 's', weak: false },
   { noun: 'Lehrer', suffix: 's', weak: false },
   { noun: 'Lehrling', suffix: 's', weak: false },
   { noun: 'Lieferant', suffix: 'en', weak: true },
@@ -38,6 +42,7 @@ const mascNouns = [
   { noun: 'Onkel', suffix: 's', weak: false },
   { noun: 'Optimismus', suffix: '', weak: false },
   { noun: 'Osten', suffix: 's', weak: false },
+  { noun: 'Pflug', suffix: 'es', weak: false },
   { noun: 'Prinz', suffix: 'en', weak: true },
   { noun: 'Regen', suffix: 's', weak: false },
   { noun: 'Sänger', suffix: 's', weak: false },
@@ -46,6 +51,8 @@ const mascNouns = [
   { noun: 'Schnee', suffix: 's', weak: false },
   { noun: 'Sekretär', suffix: 's', weak: false },
   { noun: 'Sittich', suffix: 's', weak: false },
+  { noun: 'Smog', suffix: 's', weak: false },
+  { noun: 'Sog', suffix: 's', weak: false },
   { noun: 'Sommer', suffix: 's', weak: false },
   { noun: 'Süden', suffix: 's', weak: false },
   { noun: 'Teich', suffix: 'es', weak: false },
@@ -56,6 +63,7 @@ const mascNouns = [
   { noun: 'Westen', suffix: 's', weak: false },
   { noun: 'Wind', suffix: 'es', weak: false },
   { noun: 'Winter', suffix: 's', weak: false },
+  { noun: 'Zug', suffix: 'es', weak: false },
   { noun: 'Zwilling', suffix: 's', weak: false }
 ]
 
@@ -141,9 +149,13 @@ const neutNouns = [
   { noun: 'Heiligtum', suffix: 's' },
   { noun: 'Image', suffix: 's' },
   { noun: 'Instrument', suffix: 's' },
+  { noun: 'Joch', suffix: 's' },
   { noun: 'Kind', suffix: 'es' },
   { noun: 'Kupfer', suffix: 's' },
   { noun: 'Lamm', suffix: 'es' },
+  { noun: 'Lid', suffix: 'es' },
+  { noun: 'Lied', suffix: 'es' },
+  { noun: 'Loch', suffix: 's' },
   { noun: 'Mädchen', suffix: 's' },
   { noun: 'Märchen', suffix: 's' },
   { noun: 'Maskottchen', suffix: 's' },
@@ -153,12 +165,15 @@ const neutNouns = [
   { noun: 'Päckchen', suffix: 's' },
   { noun: 'Pfännchen', suffix: 's' },
   { noun: 'Plateau', suffix: 's' },
+  { noun: 'Ried', suffix: 's' },
+  { noun: 'Sieb', suffix: 'es' },
   { noun: 'Spanisch', suffix: '' },
   { noun: 'Testament', suffix: 's' },
   { noun: 'Ultimatum', suffix: 's' },
   { noun: 'Vöglein', suffix: 's' },
   { noun: 'Votum', suffix: 's' },
-  { noun: 'Wachstum', suffix: 's' }
+  { noun: 'Wachstum', suffix: 's' },
+  { noun: 'Wrack', suffix: 's' }
 ]
 
 const plurNouns = [
