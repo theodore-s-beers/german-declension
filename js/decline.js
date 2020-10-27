@@ -617,9 +617,9 @@ function generate () {
   )
 
   // Reset the result text
-  document.getElementById('result').innerText = 'N/A'
-  document.getElementById('result').classList.remove('text-success')
-  document.getElementById('result').classList.remove('text-danger')
+  const resultField = document.getElementById('result')
+  resultField.innerText = 'N/A'
+  resultField.classList.remove('text-success', 'text-danger')
 
   // Populate noun type field
   document.getElementById('noun-type').value = nounType
@@ -629,14 +629,15 @@ function generate () {
 
   // Set placeholder for desired article type
   // Also clear field of any prior input
-  document.getElementById('desired-article').placeholder = articleType
-  document.getElementById('desired-article').value = ''
+  const articleField = document.getElementById('desired-article')
+  articleField.placeholder = articleType
+  articleField.value = ''
 
   // Make article field readonly if desired type is "none"
   if (articleType === 'none') {
-    document.getElementById('desired-article').readOnly = true
+    articleField.readOnly = true
   } else {
-    document.getElementById('desired-article').readOnly = false
+    articleField.readOnly = false
   }
 
   // Populate adjective field
@@ -648,6 +649,13 @@ function generate () {
   // Clear suffix field of any prior input
   document.getElementById('chosen-noun').value = chosenNoun
   document.getElementById('noun-suffix').value = ''
+
+  // Apply focus to the first relevant input element
+  if (articleField.readOnly) {
+    document.getElementById('adj-suffix').focus()
+  } else {
+    articleField.focus()
+  }
 }
 
 // Handle the checkbox to hide or show noun type
@@ -673,18 +681,22 @@ function validateAnswer () {
     const adjSuffixSubmission = document.getElementById('adj-suffix').value
     const nounSuffixSubmission = document.getElementById('noun-suffix').value
 
+    const resultField = document.getElementById('result')
+
     if (
       articleSubmission === articleAnswer &&
       adjSuffixSubmission === adjSuffixAnswer &&
       nounSuffixSubmission === nounSuffixAnswer
     ) {
-      document.getElementById('result').innerText = 'Correct'
-      document.getElementById('result').classList.remove('text-danger')
-      document.getElementById('result').classList.add('text-success')
+      resultField.innerText = 'Correct'
+      resultField.classList.remove('text-danger')
+      resultField.classList.add('text-success')
+      // If the answer was correct, apply focus to the "New" button
+      document.getElementById('generate').focus()
     } else {
-      document.getElementById('result').innerText = 'Incorrect'
-      document.getElementById('result').classList.remove('text-success')
-      document.getElementById('result').classList.add('text-danger')
+      resultField.innerText = 'Incorrect'
+      resultField.classList.remove('text-success')
+      resultField.classList.add('text-danger')
     }
   }
 }
@@ -694,7 +706,6 @@ function validateAnswer () {
 function submitOnEnter (event) {
   if (event.key === 'Enter') {
     validateAnswer()
-    document.activeElement.blur()
     event.preventDefault()
   }
 }
