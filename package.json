@@ -15,7 +15,7 @@
   "author": "Theo Beers",
   "license": "MIT",
   "devDependencies": {
-    "standard": "^15.0.0",
+    "standard": "^16.0.0",
     "terser": "^5.3.8"
   }
 }
