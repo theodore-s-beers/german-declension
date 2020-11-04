@@ -147,10 +147,10 @@ const neutNouns = [
   { noun: 'Baby', suffix: 's' },
   { noun: 'Bächlein', suffix: 's' },
   { noun: 'Ballett', suffix: 's' },
-  { noun: 'Bett', suffix: 'es' },
+  { noun: 'Bett', suffix: 'flex' },
   { noun: 'Blau', suffix: 's' },
   { noun: 'Blech', suffix: 's' },
-  { noun: 'Brett', suffix: 'es' },
+  { noun: 'Brett', suffix: 'flex' },
   { noun: 'Büchlein', suffix: 's' },
   { noun: 'Buffet', suffix: 's' },
   { noun: 'Datum', suffix: 's' },
@@ -261,7 +261,6 @@ const adjectives = [
   'einfach',
   'freundlich',
   'früh',
-  'gleich',
   'groß',
   'gut',
   'heiß',
@@ -435,7 +434,10 @@ function setAnswer (
   desiredCase,
   article
 ) {
+  // Make sure noun suffix answer is empty by default
   nounSuffixAnswer = ''
+
+  // If plural
   if (nounType === 'plural') {
     if (desiredCase === 'accusative') {
       if (article === 'none') {
@@ -447,6 +449,7 @@ function setAnswer (
       }
     } else if (desiredCase === 'dative') {
       adjSuffixAnswer = 'en'
+      // Plural dative noun suffix
       nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
@@ -469,7 +472,7 @@ function setAnswer (
         articleAnswer = 'die'
         adjSuffixAnswer = 'en'
       }
-    }
+    } // Else if neuter
   } else if (nounType === 'neuter') {
     if (desiredCase === 'accusative') {
       if (article === 'none') {
@@ -495,6 +498,7 @@ function setAnswer (
       }
     } else if (desiredCase === 'genitive') {
       adjSuffixAnswer = 'en'
+      // Neuter genitive noun suffix
       nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
@@ -514,7 +518,7 @@ function setAnswer (
         articleAnswer = 'das'
         adjSuffixAnswer = 'e'
       }
-    }
+    } // Else if feminine
   } else if (nounType === 'feminine') {
     if (desiredCase === 'accusative') {
       adjSuffixAnswer = 'e'
@@ -556,11 +560,12 @@ function setAnswer (
       } else {
         articleAnswer = 'die'
       }
-    }
+    } // Else, i.e. masculine
   } else {
     if (desiredCase === 'accusative') {
       adjSuffixAnswer = 'en'
       if (chosenNounWeakness === true) {
+        // Accusative suffix for weak masculine noun
         nounSuffixAnswer = chosenNounSuffix
       }
       if (article === 'none') {
@@ -572,6 +577,7 @@ function setAnswer (
       }
     } else if (desiredCase === 'dative') {
       if (chosenNounWeakness === true) {
+        // Dative suffix for weak masculine noun
         nounSuffixAnswer = chosenNounSuffix
       }
       if (article === 'none') {
@@ -586,6 +592,7 @@ function setAnswer (
       }
     } else if (desiredCase === 'genitive') {
       adjSuffixAnswer = 'en'
+      // Masculine genitive noun suffix
       nounSuffixAnswer = chosenNounSuffix
       if (article === 'none') {
         articleAnswer = ''
@@ -713,9 +720,20 @@ function validateAnswer () {
   if (adjSuffixAnswer) {
     const articleSubmission = document.getElementById('desired-article').value
     const adjSuffixSubmission = document.getElementById('adj-suffix').value
-    const nounSuffixSubmission = document.getElementById('noun-suffix').value
+
+    // This needs to be mutable for a flexible genitive suffix
+    let nounSuffixSubmission = document.getElementById('noun-suffix').value
 
     const resultField = document.getElementById('result')
+
+    // If we ended up with a flexible genitive suffix answer
+    if (nounSuffixAnswer === 'flex') {
+      // And if the submission is 's' or 'es'
+      if (nounSuffixSubmission === 's' || nounSuffixSubmission === 'es') {
+        // Then set the submission to be correct
+        nounSuffixSubmission = nounSuffixAnswer
+      }
+    }
 
     if (
       articleSubmission === articleAnswer &&
