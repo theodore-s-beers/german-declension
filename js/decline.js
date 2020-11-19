@@ -6,7 +6,7 @@ const mascNouns = [
   { noun: 'Abgleich', suffix: 's', weak: false },
   { noun: 'Aktionär', suffix: 's', weak: false },
   { noun: 'Bär', suffix: 'en', weak: true },
-  { noun: 'Bereich', suffix: 's', weak: false },
+  { noun: 'Bereich', suffix: 'flex', weak: false },
   { noun: 'Blitz', suffix: 'es', weak: false },
   { noun: 'Bodden', suffix: 's', weak: false },
   { noun: 'Buchstabe', suffix: 'n', weak: true },
