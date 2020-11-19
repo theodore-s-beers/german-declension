@@ -2,18 +2,18 @@
   "name": "german-declension",
   "version": "0.1.0",
   "description": "German declension practice",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/theodore-s-beers/german-declension.git"
+  },
+  "license": "MIT",
+  "author": "Theo Beers",
   "main": "./js/decline.js",
   "scripts": {
     "minify": "terser ./js/decline.js --mangle --source-map -o ./js/decline.min.js",
     "standardize": "standard --fix ./js/decline.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/theodore-s-beers/german-declension.git"
-  },
-  "author": "Theo Beers",
-  "license": "MIT",
   "devDependencies": {
     "standard": "^16.0.3",
     "terser": "^5.4.0"
