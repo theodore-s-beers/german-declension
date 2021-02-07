@@ -10,12 +10,15 @@
   "author": "Theo Beers",
   "main": "./js/decline.js",
   "scripts": {
+    "lint-css": "stylelint --fix ./css/styles.css",
     "minify": "terser ./js/decline.js --mangle --source-map -o ./js/decline.min.js",
     "standardize": "standard --fix ./js/decline.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
     "standard": "^16.0.3",
+    "stylelint": "^13.9.0",
+    "stylelint-config-standard": "^20.0.0",
     "terser": "^5.5.1"
   }
 }
