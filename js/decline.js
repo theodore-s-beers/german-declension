@@ -621,7 +621,6 @@ function setAnswer (
 //
 
 // Generate a new problem
-// eslint-disable-next-line no-unused-vars
 function generate () {
   const nounType = pickNounType()
   const desiredCase = pickCase()
@@ -700,7 +699,6 @@ function generate () {
 }
 
 // Handle the checkbox to hide or show noun type
-// eslint-disable-next-line no-unused-vars
 function handleCheckbox () {
   const checkbox = document.getElementById('noun-type-check')
   const nounTypeField = document.getElementById('noun-type')
@@ -714,7 +712,6 @@ function handleCheckbox () {
 }
 
 // Validate the submitted answer
-// eslint-disable-next-line no-unused-vars
 function validateAnswer () {
   // Do nothing before a problem has been generated
   if (adjSuffixAnswer) {
@@ -754,10 +751,21 @@ function validateAnswer () {
 }
 
 // Handle answer submission with Enter key
-// eslint-disable-next-line no-unused-vars
 function submitOnEnter (event) {
   if (event.key === 'Enter') {
     validateAnswer()
     event.preventDefault()
   }
 }
+
+// Other event handlers
+document.getElementById('generate').addEventListener('click', generate)
+document
+  .getElementById('noun-type-check')
+  .addEventListener('click', handleCheckbox)
+document
+  .getElementById('submit-button')
+  .addEventListener('click', validateAnswer)
+document
+  .getElementById('answer-row')
+  .addEventListener('keydown', submitOnEnter)
