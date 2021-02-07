@@ -1,19 +1,24 @@
 h1 {
   font-size: 200%;
 }
+
 h2 {
   font-size: 150%;
 }
+
 p {
   hyphens: auto;
 }
+
 .container {
   max-width: 860px;
   margin-top: 0.6rem;
 }
+
 #result-line {
   font-size: 115%;
 }
+
 @media (min-width: 768px) {
   #checkbox-wrapper {
     margin-top: 2.4rem;
