@@ -19,6 +19,6 @@
     "standard": "^16.0.3",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^22.0.0",
-    "terser": "^5.8.0"
+    "terser": "^5.9.0"
   }
 }
