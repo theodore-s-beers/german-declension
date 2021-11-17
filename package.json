@@ -19,6 +19,6 @@
     "esbuild": "^0.13.14",
     "standard": "^16.0.4",
     "stylelint": "^14.1.0",
-    "stylelint-config-standard": "^23.0.0"
+    "stylelint-config-standard": "^24.0.0"
   }
 }
