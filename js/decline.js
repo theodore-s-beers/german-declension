@@ -766,6 +766,4 @@ document
 document
   .getElementById('submit-button')
   .addEventListener('click', validateAnswer)
-document
-  .getElementById('answer-row')
-  .addEventListener('keydown', submitOnEnter)
+document.getElementById('answer-row').addEventListener('keydown', submitOnEnter)
