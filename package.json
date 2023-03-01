@@ -18,7 +18,7 @@
   "devDependencies": {
     "esbuild": "^0.17.5",
     "eslint": "^8.33.0",
-    "prettier": "^2.8.3",
+    "prettier": "^2.8.4",
     "stylelint": "^14.16.1",
     "stylelint-config-standard": "^29.0.0"
   }
