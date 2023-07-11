@@ -19,7 +19,7 @@ p {
   font-size: 115%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   #checkbox-wrapper {
     margin-top: 2.4rem;
   }
