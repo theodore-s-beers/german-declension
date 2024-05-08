@@ -300,7 +300,7 @@ let plurTally = 0
 // PURE FUNCTIONS
 //
 
-function balance () {
+function balance() {
   const tallyArray = [mascTally, femTally, neutTally, plurTally]
 
   const min = Math.min(...tallyArray)
@@ -333,7 +333,7 @@ function balance () {
   }
 }
 
-function pickNounType () {
+function pickNounType() {
   const balanceCheck = balance()
 
   if (typeof balanceCheck === 'undefined') {
@@ -379,7 +379,7 @@ function pickNounType () {
   }
 }
 
-function pickCase () {
+function pickCase() {
   const randomFour = Math.floor(Math.random() * 4)
 
   if (randomFour === 3) {
@@ -393,7 +393,7 @@ function pickCase () {
   }
 }
 
-function pickArticleType () {
+function pickArticleType() {
   const randomThree = Math.floor(Math.random() * 3)
 
   if (randomThree === 2) {
@@ -406,14 +406,14 @@ function pickArticleType () {
 }
 
 // Generic function to pick an element from a set
-function pickElement (set) {
+function pickElement(set) {
   const randomIndex = Math.floor(Math.random() * set.length)
   return set[randomIndex]
 }
 
 // Function to return a noun, given a noun type
 // This is called in the generate function
-function pickNoun (nounType) {
+function pickNoun(nounType) {
   if (nounType === 'plural') {
     return pickElement(plurNouns)
   } else if (nounType === 'neuter') {
@@ -427,7 +427,7 @@ function pickNoun (nounType) {
 
 // Ok, here's the big one
 // Given the noun type, case, and article, return the correct answer
-function setAnswer (
+function setAnswer(
   nounType,
   chosenNounSuffix,
   chosenNounWeakness,
@@ -621,7 +621,7 @@ function setAnswer (
 //
 
 // Generate a new problem
-function generate () {
+function generate() {
   const nounType = pickNounType()
   const desiredCase = pickCase()
   const adjective = pickElement(adjectives)
@@ -699,7 +699,7 @@ function generate () {
 }
 
 // Handle the checkbox to hide or show noun type
-function handleCheckbox () {
+function handleCheckbox() {
   const checkbox = document.getElementById('noun-type-check')
   const nounTypeField = document.getElementById('noun-type')
 
@@ -712,7 +712,7 @@ function handleCheckbox () {
 }
 
 // Validate the submitted answer
-function validateAnswer () {
+function validateAnswer() {
   // Do nothing before a problem has been generated
   if (adjSuffixAnswer) {
     const articleSubmission = document.getElementById('desired-article').value
@@ -751,7 +751,7 @@ function validateAnswer () {
 }
 
 // Handle answer submission with Enter key
-function submitOnEnter (event) {
+function submitOnEnter(event) {
   if (event.key === 'Enter') {
     validateAnswer()
     event.preventDefault()

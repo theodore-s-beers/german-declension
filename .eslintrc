@@ -1,4 +1,0 @@
-{
-  "parserOptions": { "ecmaVersion": "latest" },
-  "rules": { "space-before-function-paren": ["error", "always"] }
-}
