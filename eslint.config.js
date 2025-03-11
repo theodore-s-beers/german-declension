@@ -1,8 +1,8 @@
-import js from '@eslint/js'
+import js from "@eslint/js";
 
 export default [
   {
-    ignores: ['**/*.min.js']
+    ignores: ["**/*.min.js"],
   },
 
   js.configs.recommended,
@@ -10,9 +10,9 @@ export default [
   {
     languageOptions: {
       globals: {
-        console: 'readonly',
-        document: 'readonly'
-      }
-    }
-  }
-]
+        console: "readonly",
+        document: "readonly",
+      },
+    },
+  },
+];
