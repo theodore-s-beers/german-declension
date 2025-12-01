@@ -21,7 +21,7 @@
     "esbuild": "^0.25.11",
     "eslint": "^9.39.0",
     "prettier": "^3.6.2",
-    "stylelint": "^16.25.0",
+    "stylelint": "^16.26.1",
     "stylelint-config-standard": "^39.0.1"
   },
   "pnpm": {
