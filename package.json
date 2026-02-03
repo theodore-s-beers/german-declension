@@ -2,16 +2,16 @@
   "name": "german-declension",
   "version": "0.1.0",
   "description": "German declension practice",
+  "license": "MIT",
+  "author": "Theo Beers",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/theodore-s-beers/german-declension.git"
   },
-  "license": "MIT",
-  "author": "Theo Beers",
   "type": "module",
   "main": "js/decline.js",
   "scripts": {
-    "format": "prettier --write .",
+    "format": "oxfmt",
     "lint": "eslint --fix . && stylelint --fix css/styles.css",
     "minify": "esbuild js/decline.js --minify --sourcemap --outfile=js/decline.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -20,8 +20,8 @@
     "@eslint/js": "^9.39.2",
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
-    "prettier": "^3.8.0",
-    "stylelint": "^17.0.0",
+    "oxfmt": "^0.28.0",
+    "stylelint": "^17.1.0",
     "stylelint-config-standard": "^40.0.0"
   },
   "pnpm": {
