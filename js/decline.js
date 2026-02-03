@@ -427,13 +427,7 @@ function pickNoun(nounType) {
 
 // Ok, here's the big one
 // Given the noun type, case, and article, return the correct answer
-function setAnswer(
-  nounType,
-  chosenNounSuffix,
-  chosenNounWeakness,
-  desiredCase,
-  article,
-) {
+function setAnswer(nounType, chosenNounSuffix, chosenNounWeakness, desiredCase, article) {
   // Make sure noun suffix answer is empty by default
   nounSuffixAnswer = "";
 
@@ -648,13 +642,7 @@ function generate() {
   }
 
   // Set the correct answer
-  setAnswer(
-    nounType,
-    chosenNounSuffix,
-    chosenNounWeakness,
-    desiredCase,
-    articleType,
-  );
+  setAnswer(nounType, chosenNounSuffix, chosenNounWeakness, desiredCase, articleType);
 
   // Reset the result text
   const resultField = document.getElementById("result");
@@ -760,12 +748,6 @@ function submitOnEnter(event) {
 
 // Other event handlers
 document.getElementById("generate").addEventListener("click", generate);
-document
-  .getElementById("noun-type-check")
-  .addEventListener("click", handleCheckbox);
-document
-  .getElementById("submit-button")
-  .addEventListener("click", validateAnswer);
-document
-  .getElementById("answer-row")
-  .addEventListener("keydown", submitOnEnter);
+document.getElementById("noun-type-check").addEventListener("click", handleCheckbox);
+document.getElementById("submit-button").addEventListener("click", validateAnswer);
+document.getElementById("answer-row").addEventListener("keydown", submitOnEnter);
