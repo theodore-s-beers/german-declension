@@ -17,7 +17,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.2",
+    "@eslint/js": "^9.39.3",
     "esbuild": "^0.27.2",
     "eslint": "^9.39.2",
     "oxfmt": "^0.28.0",
