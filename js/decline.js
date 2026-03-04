@@ -308,7 +308,7 @@ function balance() {
 
   const minIndex = tallyArray.indexOf(min);
 
-  let minName = "";
+  let minName;
 
   if (minIndex === 3) {
     minName = "plural";
