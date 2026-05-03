@@ -12,21 +12,15 @@
   "main": "js/decline.js",
   "scripts": {
     "format": "oxfmt",
-    "lint": "eslint --fix . && stylelint --fix css/styles.css",
+    "lint": "oxfmt --check && oxlint && stylelint css/styles.css",
     "minify": "esbuild js/decline.js --minify --sourcemap --outfile=js/decline.min.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "devDependencies": {
-    "@eslint/js": "^10.0.1",
-    "esbuild": "^0.27.3",
-    "eslint": "^10.0.2",
-    "oxfmt": "^0.36.0",
-    "stylelint": "^17.4.0",
+    "esbuild": "^0.28.0",
+    "oxfmt": "^0.47.0",
+    "oxlint": "^1.62.0",
+    "stylelint": "^17.10.0",
     "stylelint-config-standard": "^40.0.0"
-  },
-  "pnpm": {
-    "onlyBuiltDependencies": [
-      "esbuild"
-    ]
   }
 }
