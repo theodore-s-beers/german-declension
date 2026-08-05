@@ -18,9 +18,9 @@
   },
   "devDependencies": {
     "esbuild": "^0.28.1",
-    "oxfmt": "^0.57.0",
-    "oxlint": "^1.72.0",
-    "stylelint": "^17.14.0",
+    "oxfmt": "^0.62.0",
+    "oxlint": "^1.77.0",
+    "stylelint": "^17.14.1",
     "stylelint-config-standard": "^40.0.0"
   }
 }
